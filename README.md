@@ -25,3 +25,4 @@ This app will consist of two activities a list page and an edit page. Users will
   * Added Save button for user to not have to press back to return
   * Added Delete button and functionality. This will work very similarly to the add/edit functionality. Check the `ArrayList` documentation if you need help figuring out how to remove items from a list
 
+1
