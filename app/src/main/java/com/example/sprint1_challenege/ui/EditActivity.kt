@@ -19,20 +19,20 @@ class EditActivity : AppCompatActivity(){
         save_button.setOnClickListener {
             var saveMovieIntent = Intent()
             saveMovieIntent.putExtra("movie", createMovie())
-            setResult(Activity.RESULT_OK,saveMovieIntent)
+            setResult(Activity.RESULT_OK, saveMovieIntent)
             finish()
         }
 
-        delete_button.setOnClickListener{
-            var deleteMovieIntent = Intent()
-            deleteMovieIntent.putExtra("delete",deleteMovie())
-            setResult(Activity.RESULT_OK,deleteMovieIntent)
-            finish()
-        }
+        delete_button.setOnClickListener {
+        var deleteMovieIntent = Intent()
+        deleteMovieIntent.putExtra("delete", deleteMovie())
+        setResult(Activity.RESULT_OK, deleteMovieIntent)
+        finish()
+    }
 
         var bundle: Bundle? = intent.extras
         if (bundle != null) {
-            loadMovie(bundle!!.getSerializable("Movie") as Movie)
+            loadMovie(bundle.getSerializable("Movie") as Movie)
         }
     }
 
@@ -44,6 +44,7 @@ class EditActivity : AppCompatActivity(){
         var newMovie = Movie(edit_movie.text.toString())
         return newMovie
     }
+
 
     fun deleteMovie(): Movie{
         var delMovie = Movie(edit_movie.text.clear().toString())
