@@ -7,12 +7,13 @@ import android.os.Bundle
 import android.widget.TextView
 import com.example.sprint1_challenege.R
 import com.example.sprint1_challenege.model.Movie
+import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class ListActivity : AppCompatActivity() {
 
     var movielist = mutableListOf<Movie>()
-    var viewGroup = linear_layout
+
     companion object {
         const val REQUEST_CODE_EDIT_MOVIE = 2
     }
@@ -28,7 +29,7 @@ class ListActivity : AppCompatActivity() {
     }
 
     fun refreshMovieList() {
-        viewGroup.removeAllViews()
+        linear_layout.removeAllViews()
         for ((counter,movie) in movielist.withIndex()){
             linear_layout.addView(createTextView(movie, counter))
         }
@@ -55,9 +56,11 @@ class ListActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_CODE_EDIT_MOVIE && resultCode == Activity.RESULT_OK) {
-            val newMovieResult = data!!.getSerializableExtra("movie") as Movie
+        if (requestCode == REQUEST_CODE_EDIT_MOVIE && resultCode == Activity.RESULT_OK && seek_bar_watch.progress == 0) {
+            var newMovieResult = data!!.getSerializableExtra("movie") as Movie
+            else 
             movielist.add(newMovieResult)
+
         }
     }
 }
