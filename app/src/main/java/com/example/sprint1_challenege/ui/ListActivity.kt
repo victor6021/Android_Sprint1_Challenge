@@ -56,9 +56,8 @@ class ListActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == REQUEST_CODE_EDIT_MOVIE && resultCode == Activity.RESULT_OK && seek_bar_watch.progress == 0) {
+        if (requestCode == REQUEST_CODE_EDIT_MOVIE && resultCode == Activity.RESULT_OK) {
             var newMovieResult = data!!.getSerializableExtra("movie") as Movie
-            else 
             movielist.add(newMovieResult)
 
         }
